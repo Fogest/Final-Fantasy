@@ -38,7 +38,7 @@ public class Sound {
 
 	public static void main(String[] args) {
 		Sound s = new Sound();
-		s.init();
+		s.init("Kingdom_Baron");
 		while (true) {
 			s.playBG();
 			try {

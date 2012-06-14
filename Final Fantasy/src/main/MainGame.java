@@ -36,7 +36,7 @@ public class MainGame {
 		frame.addKeyListener(grid);
 
 		Sound s = new Sound();
-		s.init();
+		s.init("Kingdom_Baron");
 		
 		long framerate = 1000 / 60;
 		// time the frame began
