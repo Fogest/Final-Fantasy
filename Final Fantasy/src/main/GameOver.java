@@ -8,7 +8,7 @@ package main;
  *
  */
 
-//Nathan
+//Nathan was here
 //Use the sound method called playGameOver and stopGameOver
 public class GameOver {
 
