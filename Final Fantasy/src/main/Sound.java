@@ -10,10 +10,10 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 public class Sound {
 	Clip background;
 
-	public void init() {
+	public void init(String soundFile) {
 
 		try {
-			File file = new File("Sounds\\Kingdom_Baron.mid");
+			File file = new File("Sounds\\"+ soundFile +".mid");
 			background = AudioSystem.getClip();
 			background.open(AudioSystem.getAudioInputStream(file));
 		} catch (LineUnavailableException e) {

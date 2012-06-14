@@ -10,10 +10,16 @@ import javax.swing.JFrame;
 /**
  * @author Justin
  * 
+ * MainGame
+ * 
  */
 public class MainGame {
 
 	/**
+	 * Main Class
+	 * 
+	 * Handles the core game aspects
+	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
@@ -29,6 +35,9 @@ public class MainGame {
 		frame.add(grid);
 		frame.addKeyListener(grid);
 
+		Sound s = new Sound();
+		s.init();
+		
 		long framerate = 1000 / 60;
 		// time the frame began
 		long frameStart;
