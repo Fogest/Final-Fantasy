@@ -50,6 +50,7 @@ public class MainGame {
 		while (true) {
 			// save the start time
 			frameStart = System.currentTimeMillis();
+			//System.out.println(hasWon);
 			if (BattleScene == false && hasWon == true && showWin == false) {
 				if (grid.isBattle() == false) {
 					grid.run();
@@ -90,7 +91,6 @@ public class MainGame {
 				frame.repaint();
 				grid.repaint();
 				BattleScene = false;
-				hasWon = false;
 				showWin = false;
 				grid.resetRandom();
 				grid.setBattle(false);
