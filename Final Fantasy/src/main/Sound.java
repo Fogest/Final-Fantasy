@@ -8,14 +8,14 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class Sound {
-	Clip background;
+	Clip soundClip;
 
-	public void init(String soundFile) {
+	public Sound(String soundFile) {
 
 		try {
-			File file = new File("Sounds\\"+ soundFile +".mid");
-			background = AudioSystem.getClip();
-			background.open(AudioSystem.getAudioInputStream(file));
+			File file = new File("Sounds\\" + soundFile + ".mid");
+			soundClip = AudioSystem.getClip();
+			soundClip.open(AudioSystem.getAudioInputStream(file));
 		} catch (LineUnavailableException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -29,24 +29,26 @@ public class Sound {
 	}
 
 	public void playBG() {
-		background.start();
+		soundClip.start();
 	}
 
 	public void stopBG() {
-		background.stop();
+		soundClip.stop();
 	}
 
-	public static void main(String[] args) {
-		Sound s = new Sound();
-		s.init("Kingdom_Baron");
-		while (true) {
-			s.playBG();
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				break;
-			}
-		}
+	public void playBattleMusic() {
+		soundClip.start();
 	}
 
+	public void stopBattleMusic() {
+		soundClip.stop();
+	}
+
+	public void playVictory() {
+		soundClip.start();
+	}
+
+	public void stopVictory() {
+		soundClip.stop();
+	}
 }

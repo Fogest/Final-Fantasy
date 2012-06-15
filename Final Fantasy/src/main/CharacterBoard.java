@@ -32,6 +32,7 @@ public class CharacterBoard {
 
 	private boolean entity = false;
 
+	private int generated;
 	public CharacterBoard() {
 		try {
 			charSheetBig = ImageIO.read(new File("sprites/player.png"));
@@ -128,12 +129,15 @@ public class CharacterBoard {
 
 	public boolean checkForEntity() {
 		Random gen = new Random();
-		int generated = gen.nextInt(50);
+		generated = gen.nextInt(50);
 		if (generated == 1) {
 			entity = true;
 		} else {
 			entity = false;
 		}
 		return entity;
+	}
+	public void resetRandom() {
+		generated = 0;
 	}
 }

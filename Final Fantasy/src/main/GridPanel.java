@@ -275,5 +275,8 @@ public class GridPanel extends JPanel implements KeyListener {
 			repaint();
 		}
 	}
+	public void resetRandom() {
+		c.resetRandom();
+	}
 
 }

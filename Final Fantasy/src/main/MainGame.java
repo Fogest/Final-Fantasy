@@ -25,6 +25,7 @@ public class MainGame {
 	public static void main(String[] args) {
 		boolean BattleScene = false;
 		boolean hasWon = true;
+		boolean showWin = false;
 		JFrame frame = new JFrame("Final Fantasy");
 		GridPanel grid = new GridPanel("overworld");
 		BattlePanel Battle = null;
@@ -34,9 +35,6 @@ public class MainGame {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.add(grid);
 		frame.addKeyListener(grid);
-
-		Sound s = new Sound();
-		s.init("Kingdom_Baron");
 		
 		long framerate = 1000 / 60;
 		// time the frame began
@@ -52,7 +50,7 @@ public class MainGame {
 		while (true) {
 			// save the start time
 			frameStart = System.currentTimeMillis();
-			if (BattleScene == false && hasWon == true) {
+			if (BattleScene == false && hasWon == true && showWin == false) {
 				if (grid.isBattle() == false) {
 					grid.run();
 				} else if (grid.isBattle() == true) {
@@ -67,16 +65,35 @@ public class MainGame {
 					frame.setVisible(true);
 					Battle.repaint();
 				}
-			} else if (BattleScene == true && hasWon == true) {
+			} else if (BattleScene == true && hasWon == true && showWin == false) {
 				Battle.run();
+				showWin = Battle.isBattleWon();
+				if(showWin == true)
+				{
+					BattleScene = false;
+				}
+
 				if (Battle.isGameOver() == true) {
-					// hasWon = Battle.isBattleWon();
+					hasWon = Battle.isBattleWon();
 					BattleScene = false;
 					Battle = null;
 					frame.getContentPane().remove(Battle);
 				}
-			} else if (BattleScene == false && hasWon == false) {
+			} else if (BattleScene == false && hasWon == false && showWin == false) {
 				Battle = null;
+			} else if(BattleScene == false && hasWon == true && showWin == true) {
+				frame.getContentPane().remove(Battle);
+				Battle = null;
+				Sound sound = new Sound("win");
+				sound.playVictory();
+				frame.getContentPane().add(grid);
+				frame.repaint();
+				grid.repaint();
+				BattleScene = false;
+				hasWon = false;
+				showWin = false;
+				grid.resetRandom();
+				grid.setBattle(false);
 			}
 			// calculate the time it took to render the frame
 			elapsedTime = System.currentTimeMillis() - frameStart;
