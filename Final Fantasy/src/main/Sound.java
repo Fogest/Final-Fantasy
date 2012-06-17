@@ -9,9 +9,12 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class Sound {
 	Clip soundClip;
+	private float currDB = 0F;
+	private float targetDB = 0F;
+	private float fadePerStep = .1F;   // .1 works for applets, 1 is okay for apps
+	private boolean fading = false;
 
 	public Sound(String soundFile) {
-
 		try {
 			File file = new File("Sounds\\" + soundFile + ".mid");
 			soundClip = AudioSystem.getClip();

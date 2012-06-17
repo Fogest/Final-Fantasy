@@ -1,12 +1,30 @@
 package main;
 
+import java.awt.Graphics;
+
+import javax.swing.JPanel;
+
 /**
  * @author Nathan
  *
  */
 
-public class Menu {
+public class Menu extends JPanel{
 	
+	public Menu () {
+		
+	}
+	
+	public void run() {
+		
+	}
+	public void load() {
+		
+	}
+	
+	public void paintCompenent(Graphics g) {
+		g.drawText("fgseg",100,100);
+	}
 	/**
 	 * @param args
 	 */

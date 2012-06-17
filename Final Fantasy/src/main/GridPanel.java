@@ -26,7 +26,9 @@ public class GridPanel extends JPanel implements KeyListener {
 	private int spriteTick = 0;
 
 	/**
-	 * @param s
+	 * Creates the new elements required to create a grid and character on that grid
+	 * 
+	 * @param s Passing in the map name so that the game knows which map file to load.
 	 */
 	public GridPanel(String s) {
 		this.g = new Grid(s);
