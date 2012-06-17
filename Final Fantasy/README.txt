@@ -1,1 +1,1 @@
-http://download.eclipse.org/egit/updates-nightly/
+Main Directory!
