@@ -3,6 +3,7 @@
  */
 package main;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 import javax.swing.JFrame;
@@ -21,6 +22,7 @@ public class MainGame {
 
 	private boolean menu = true;
 	private Sound background;
+	private long reportedFramerate;
 
 	/**
 	 * Main Class
@@ -46,8 +48,10 @@ public class MainGame {
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.add(grid);
+		frame.add(menu);
 		frame.addKeyListener(grid);
+		frame.addMouseListener(menu);
+		frame.addMouseMotionListener(menu);
 
 		long framerate = 1000 / 60;
 		// time the frame began
@@ -59,19 +63,19 @@ public class MainGame {
 		// accumulates elapsed time over multiple frames
 		long totalElapsedTime = 0;
 		// the actual calculated framerate reported
-		long reportedFramerate;
+		
 		
 		while (true) {
-			while(isMenu() == true && load == true) {
+			while(menu.isMenu() == true && load == true) {
 				menu.run();
 			}
-			if(isMenu() == false && load == true) {
+			if(menu.isMenu() == false && load == true) {
 				menu.load();
 				load = false;
 			    background = new Sound("bg");
 				background.playBG();
 			}
-			while (isMenu() == false && load == false) {
+			while (menu.isMenu() == false && load == false) {
 				// save the start time
 				frameStart = System.currentTimeMillis();
 				// System.out.println(hasWon);
@@ -161,10 +165,6 @@ public class MainGame {
 				}
 			}
 		}
-	}
-
-	public void paintComponent(Graphics g) {
-
 	}
 
 	public boolean isMenu() {
