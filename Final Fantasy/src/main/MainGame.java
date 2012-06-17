@@ -23,6 +23,8 @@ public class MainGame {
 	private boolean menu = true;
 	private Sound background;
 	private long reportedFramerate;
+	private boolean isLoad = true;
+	private boolean isMenu = true;
 
 	/**
 	 * Main Class
@@ -66,16 +68,27 @@ public class MainGame {
 		
 		
 		while (true) {
-			while(menu.isMenu() == true && load == true) {
+			while(isMenu == true && isLoad == true) {
 				menu.run();
+				this.isMenu = menu.isMenu();
+				this.isLoad = menu.isLoad();
 			}
-			if(menu.isMenu() == false && load == true) {
+			if(isMenu == false && isLoad == true) {
 				menu.load();
-				load = false;
+				menu.setLoad(false);
 			    background = new Sound("bg");
-				background.playBG();
+			    background.playBG();
+			    this.isMenu = menu.isMenu();
+				this.isLoad = menu.isLoad();
+			    frame.getContentPane().remove(menu);
+			    menu = null;
+			    frame.getContentPane().add(grid);
+			    frame.repaint();
+			    frame.setVisible(true);
+			    grid.repaint();
+			    System.out.println("sup");
 			}
-			while (menu.isMenu() == false && load == false) {
+			while (isMenu == false && isLoad == false) {
 				// save the start time
 				frameStart = System.currentTimeMillis();
 				// System.out.println(hasWon);

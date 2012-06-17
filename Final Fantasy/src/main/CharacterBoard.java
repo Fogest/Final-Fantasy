@@ -129,7 +129,7 @@ public class CharacterBoard {
 
 	public boolean checkForEntity() {
 		Random gen = new Random();
-		generated = gen.nextInt(50);
+		generated = gen.nextInt(1000);
 		if (generated == 1) {
 			entity = true;
 		} else {

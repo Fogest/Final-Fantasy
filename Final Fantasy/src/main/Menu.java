@@ -35,6 +35,8 @@ public class Menu extends JPanel implements MouseListener,MouseMotionListener {
 	
 	private int mousePosX = 0;
 	private int mousePosY = 0;
+	
+	private boolean load = true;
 
 	private BufferedImage splash;
 
@@ -105,6 +107,9 @@ public class Menu extends JPanel implements MouseListener,MouseMotionListener {
 	public boolean isMenu() {
 		return isMenu;
 	}
+	public void setMenu(boolean menu) {
+		this.isMenu = menu;
+	}
 
 	public void setF1(Font f1) {
 		this.f1 = f1;
@@ -123,7 +128,7 @@ public class Menu extends JPanel implements MouseListener,MouseMotionListener {
 		int x = e.getX();
 		int y = e.getY();
 		if ((x > posX) && (x < posX + 145) && (y > posY) && (y < posY + 30)) {
-			
+			setMenu(false);
 		}
 		else if ((x > posX) && (x < posX + 95) && (y > posY + 31) && (y < posY + 60)) {
 			
@@ -183,6 +188,14 @@ public class Menu extends JPanel implements MouseListener,MouseMotionListener {
 
 	public void setMousePosY(int mousePosY) {
 		this.mousePosY = mousePosY;
+	}
+
+	public boolean isLoad() {
+		return load;
+	}
+
+	public void setLoad(boolean load) {
+		this.load = load;
 	}
 
 
