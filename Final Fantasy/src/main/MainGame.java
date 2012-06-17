@@ -22,6 +22,8 @@ public class MainGame {
 
 	private boolean menu = true;
 	private Sound background;
+	private Sound battle;
+	private Sound victory;
 	private long reportedFramerate;
 	private boolean isLoad = true;
 	private boolean isMenu = true;
@@ -86,7 +88,8 @@ public class MainGame {
 			    frame.repaint();
 			    frame.setVisible(true);
 			    grid.repaint();
-			    System.out.println("sup");
+			    victory = new Sound("win");
+			    battle = new Sound("battle");
 			}
 			while (isMenu == false && isLoad == false) {
 				// save the start time
@@ -100,12 +103,12 @@ public class MainGame {
 						Battle = new BattlePanel(grid.getCurBlockType());
 						frame.getContentPane().remove(grid);
 						BattleScene = true;
-						System.out.println("BattleScene it's your turn!");
 						frame.add(Battle);
 						frame.repaint();
 						frame.pack();
 						frame.setVisible(true);
 						Battle.repaint();
+						battle.playBattleMusic();
 					}
 				} else if (BattleScene == true && hasWon == true
 						&& showWin == false) {
@@ -116,6 +119,7 @@ public class MainGame {
 					}
 
 					if (Battle.isGameOver() == true) {
+						battle.stopBattleMusic();
 						hasWon = Battle.isBattleWon();
 						BattleScene = false;
 						Battle = null;
@@ -123,14 +127,14 @@ public class MainGame {
 					}
 				} else if (BattleScene == false && hasWon == false
 						&& showWin == false) {
+					battle.stopBattleMusic();
 					Battle = null;
 				} else if (BattleScene == false && hasWon == true
 						&& showWin == true) {
 					frame.getContentPane().remove(Battle);
 					Battle = null;
-					Sound sound = new Sound("win");
 					background.stopBG();
-					sound.playVictory();
+					victory.playVictory();
 					frame.getContentPane().add(grid);
 					frame.repaint();
 					grid.repaint();
@@ -138,12 +142,13 @@ public class MainGame {
 					showWin = false;
 					grid.resetRandom();
 					grid.setBattle(false);
+					battle.stopBattleMusic();
 					try {
 						Thread.sleep(4000);
 					} catch (InterruptedException e) {
 						break;
 					}
-					sound.stopVictory();
+					victory.stopVictory();
 					try {
 						Thread.sleep(2000);
 					} catch (InterruptedException e) {
