@@ -10,12 +10,12 @@ import javax.swing.JFrame;
 
 /**
  * @author Justin
- * 
- *         MainGame
- * 
  */
 public class MainGame {
 
+	/**
+	 * Calls run when a new maingame is created
+	 */
 	public MainGame() {
 		run();
 	}
@@ -29,9 +29,7 @@ public class MainGame {
 	private boolean isMenu = true;
 
 	/**
-	 * Main Class
-	 * 
-	 * Handles the core game aspects
+	 * Creates a new main game
 	 * 
 	 * @param args
 	 */
@@ -39,6 +37,9 @@ public class MainGame {
 		MainGame m = new MainGame();
 	}
 
+	/**
+	 *  Runs the whole game and handles the logic of switching panels
+	 */
 	public void run() {
 		boolean BattleScene = false;
 		boolean hasWon = true;
@@ -79,7 +80,7 @@ public class MainGame {
 				menu.load();
 				menu.setLoad(false);
 			    background = new Sound("bg");
-			    background.playBG();
+			    background.play();
 			    this.isMenu = menu.isMenu();
 				this.isLoad = menu.isLoad();
 			    frame.getContentPane().remove(menu);
@@ -108,8 +109,8 @@ public class MainGame {
 						frame.pack();
 						frame.setVisible(true);
 						Battle.repaint();
-						background.stopBG();
-						battle.playBattleMusic();
+						background.stop();
+						battle.play();
 					}
 				} else if (BattleScene == true && hasWon == true
 						&& showWin == false) {
@@ -120,7 +121,7 @@ public class MainGame {
 					}
 
 					if (Battle.isGameOver() == true) {
-						battle.stopBattleMusic();
+						battle.stop();
 						hasWon = Battle.isBattleWon();
 						BattleScene = false;
 						Battle = null;
@@ -128,14 +129,14 @@ public class MainGame {
 					}
 				} else if (BattleScene == false && hasWon == false
 						&& showWin == false) {
-					battle.stopBattleMusic();
+					battle.stop();
 					Battle = null;
 				} else if (BattleScene == false && hasWon == true
 						&& showWin == true) {
 					frame.getContentPane().remove(Battle);
 					Battle = null;
-					background.stopBG();
-					victory.playVictory();
+					background.stop();
+					victory.play();
 					frame.getContentPane().add(grid);
 					frame.repaint();
 					grid.repaint();
@@ -143,19 +144,19 @@ public class MainGame {
 					showWin = false;
 					grid.resetRandom();
 					grid.setBattle(false);
-					battle.stopBattleMusic();
+					battle.stop();
 					try {
 						Thread.sleep(4000);
 					} catch (InterruptedException e) {
 						break;
 					}
-					victory.stopVictory();
+					victory.stop();
 					try {
 						Thread.sleep(2000);
 					} catch (InterruptedException e) {
 						break;
 					}
-					background.playBG();
+					background.play();
 				}
 				// calculate the time it took to render the frame
 				elapsedTime = System.currentTimeMillis() - frameStart;
@@ -186,10 +187,16 @@ public class MainGame {
 		}
 	}
 
+	/**
+	 * @return if is currently in menu or not.
+	 */
 	public boolean isMenu() {
 		return menu;
 	}
 
+	/**
+	 * @param menu In menu or not?
+	 */ 
 	public void setMenu(boolean menu) {
 		this.menu = menu;
 	}

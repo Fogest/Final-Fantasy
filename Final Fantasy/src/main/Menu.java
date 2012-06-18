@@ -40,6 +40,9 @@ public class Menu extends JPanel implements MouseListener,MouseMotionListener {
 
 	private BufferedImage splash;
 
+	/**
+	 * Loads in splash image when the menu is created
+	 */
 	public Menu() {
 		try {
 			splash = ImageIO.read(new File("images/splash.jpg"));
@@ -49,6 +52,9 @@ public class Menu extends JPanel implements MouseListener,MouseMotionListener {
 		}
 	}
 
+	/**
+	 *  Mouse Checks
+	 */
 	public void run() {
 			if ((getMousePosX() > posX) && (getMousePosX() < posX + 145) && (getMousePosY() > posY) && (getMousePosY() < posY + 30)) {
 				setF1(new Font("Arial",Font.BOLD,30));
@@ -72,13 +78,17 @@ public class Menu extends JPanel implements MouseListener,MouseMotionListener {
 		repaint();
 	}
 
+	/**
+	 * What to be done on menu load.
+	 */
 	public void load() {
 
 	}
 
+	/* (non-Javadoc)
+	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
+	 */
 	public void paintComponent(Graphics g) {
-
-		// setF3(new Font("Arial",Font.PLAIN,20));
 
 		g.setColor(Color.WHITE);
 		g.drawRect(0, 0, 1024, 615);
@@ -98,31 +108,51 @@ public class Menu extends JPanel implements MouseListener,MouseMotionListener {
 		g.setFont(f3);
 		g.drawString("Exit", posX, posY + 60);
 
-		
-		//Output mouse coords.
-		//g.drawString("X: " + getMousePosX() + "        Y: " + getMousePosY(), 50, 50);
-
 	}
 
+	/**
+	 * @return true if in menu, false if not
+	 */
 	public boolean isMenu() {
 		return isMenu;
 	}
+	/**
+	 * @param menu If in menu or not
+	 */
 	public void setMenu(boolean menu) {
 		this.isMenu = menu;
 	}
 
+	/**
+	 * Used to change the first set of texts font
+	 * 
+	 * @param f1 Set font
+	 */
 	public void setF1(Font f1) {
 		this.f1 = f1;
 	}
 
+	/**
+	 * Used to change the second set of texts font
+	 * 
+	 * @param f2 Set font
+	 */
 	public void setF2(Font f2) {
 		this.f2 = f2;
 	}
 
+	/**
+	 * Used to change the third set of texts font
+	 * 
+	 * @param f3 Set font
+	 */
 	public void setF3(Font f3) {
 		this.f3 = f3;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.MouseListener#mouseClicked(java.awt.event.MouseEvent)
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		int x = e.getX();
@@ -139,33 +169,51 @@ public class Menu extends JPanel implements MouseListener,MouseMotionListener {
 
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.MouseListener#mouseEntered(java.awt.event.MouseEvent)
+	 */
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
 
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.MouseListener#mouseExited(java.awt.event.MouseEvent)
+	 */
 	@Override
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
 
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.MouseListener#mousePressed(java.awt.event.MouseEvent)
+	 */
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
 
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
+	 */
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
 
 	}
+	/* (non-Javadoc)
+	 * @see java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.MouseEvent)
+	 */
 	public void mouseDragged(MouseEvent e) {
 		
 	}
 	
+	/* (non-Javadoc)
+	 * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
+	 */
 	public void mouseMoved(MouseEvent e) {
 		int x = e.getX();
 		int y = e.getY();
@@ -174,26 +222,44 @@ public class Menu extends JPanel implements MouseListener,MouseMotionListener {
 		this.setMousePosY(y);
 	}
 
+	/**
+	 * @return X position of mouse
+	 */
 	public int getMousePosX() {
 		return mousePosX;
 	}
 
+	/**
+	 * @param mousePosX Set X position of mouse
+	 */
 	public void setMousePosX(int mousePosX) {
 		this.mousePosX = mousePosX;
 	}
 
+	/**
+	 * @return Y position of mouse
+	 */
 	public int getMousePosY() {
 		return mousePosY;
 	}
 
+	/**
+	 * @param mousePosY Set Y position of mouse
+	 */
 	public void setMousePosY(int mousePosY) {
 		this.mousePosY = mousePosY;
 	}
 
+	/**
+	 * @return true if loading, false if not
+	 */
 	public boolean isLoad() {
 		return load;
 	}
 
+	/**
+	 * @param load Is loading or not?
+	 */
 	public void setLoad(boolean load) {
 		this.load = load;
 	}

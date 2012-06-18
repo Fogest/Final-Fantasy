@@ -13,6 +13,11 @@ public class TileType {
 	private boolean blocked;
 	private char type;
 
+	/**
+	 * Defines the type of tile based on the character given
+	 * 
+	 * @param t The character of the tile type. 
+	 */
 	public TileType(char t) {
 		this.setType(t);
 		if (t == 'g') {
@@ -62,43 +67,60 @@ public class TileType {
 		}
 	}
 
+	/**
+	 * @return Returns specific speed of tile
+	 */
 	public int getSpeed() {
 		return speed;
 	}
 
+	/**
+	 * @param speed Sets the speed of the tile
+	 */
 	public void setSpeed(int speed) {
 		this.speed = speed;
 	}
 
+	/**
+	 * @return Returns the sprite position relating to the type of tile
+	 */
 	public int getSpritePos() {
 		return spritePos;
 	}
 
+	/**
+	 * @param spritePos Sets the sprite position of the tile
+	 */
 	public void setSpritePos(int spritePos) {
 		this.spritePos = spritePos;
 	}
 
+	/**
+	 * @return True if blocked, false if clear.
+	 */
 	public boolean isBlocked() {
 		return blocked;
 	}
 
+	/**
+	 * @param blocked Sets if the tile is blocked or not.
+	 */
 	public void setBlocked(boolean blocked) {
 		this.blocked = blocked;
 	}
 
+	/**
+	 * @return Returns the type of tile
+	 */
 	public char getType() {
 		return type;
 	}
 
+	/**
+	 * @param type TileType
+	 */
 	public void setType(char type) {
 		this.type = type;
-	}
-
-	public static void main(String[] args) {
-		TileType t = new TileType('x');
-		System.out.println(t.getSpritePos());
-		System.out.println(t.getSpeed());
-		System.out.println(t.getType());
 	}
 
 }

@@ -7,13 +7,18 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
+/**
+ * @author Justin
+ *
+ */
 public class Sound {
 	Clip soundClip;
-	private float currDB = 0F;
-	private float targetDB = 0F;
-	private float fadePerStep = .1F;   // .1 works for applets, 1 is okay for apps
-	private boolean fading = false;
 
+	/**
+	 * Creates a loads a new sound clip
+	 * 
+	 * @param soundFile File name of the sound clip EXCLUDING the extension name
+	 */
 	public Sound(String soundFile) {
 		try {
 			File file = new File("Sounds\\" + soundFile + ".mid");
@@ -31,27 +36,17 @@ public class Sound {
 		}
 	}
 
-	public void playBG() {
+	/**
+	 * Starts playback of a soundtrack and loops 3 times. 3 times should be enough in this case!
+	 */
+	public void play() {
 		soundClip.loop(3);
 	}
 
-	public void stopBG() {
-		soundClip.stop();
-	}
-
-	public void playBattleMusic() {
-		soundClip.loop(3);
-	}
-
-	public void stopBattleMusic() {
-		soundClip.stop();
-	}
-
-	public void playVictory() {
-		soundClip.loop(3);
-	}
-
-	public void stopVictory() {
+	/**
+	 * Stops (pauses) the sound clip
+	 */
+	public void stop() {
 		soundClip.stop();
 	}
 }

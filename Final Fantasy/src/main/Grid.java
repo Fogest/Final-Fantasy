@@ -38,6 +38,11 @@ public class Grid {
 	private int movePosX;
 	private int movePosY;
 
+	/**
+	 * Creates the new grid.
+	 * 
+	 * @param name The name of the text file which the grid will be read from.
+	 */
 	public Grid(String name) {
 		this.mapName = name;
 		String fileName = new File("").getAbsolutePath() + "\\readIn\\"
@@ -58,12 +63,6 @@ public class Grid {
 				}
 				temp = "";
 			}
-			// for (int i = 0; i < 10; i++) {
-			// for (int f = 0; f < 10; f++) {
-			// System.out.print(textGrid[f][i]);
-			// }
-			// System.out.println("");
-			// }
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -87,18 +86,32 @@ public class Grid {
 		}
 	}
 
+	/**
+	 * @return Gives the X size of the grid
+	 */
 	public int getGridX() {
 		return gridX;
 	}
 
+	/**
+	 * @return the y size of the grid
+	 */
 	public int getGridY() {
 		return gridY;
 	}
 
+	/**
+	 * @return the map name
+	 */
 	public String getMapName() {
 		return mapName;
 	}
 
+	/**
+	 * Draws all the tiles for the board.
+	 * 
+	 * @param g Graphics
+	 */
 	public void paintComponent(Graphics g) {
 
 		g.clearRect(0, 0, 1024, 576);
@@ -108,13 +121,14 @@ public class Grid {
 				g.drawImage(tileSheet[tiles[b][a].getSpritePos()],
 						((b - movePosX) * tiles[b][a].getSize()),
 						((a - movePosY) * tiles[b][a].getSize()), 64, 64, null);
-				//System.out.println(a + "      " + b );
-				//System.out.println(tiles[b][a].getSpritePos());
 			}
 		}
 
 	}
 
+	/**
+	 * Creates the tiles array based on the textGrid that is created when grid is made.
+	 */
 	public void setMap() {
 		for (int a = 0; a < gridY; a++) {
 			for (int b = 0; b < gridX; b++) {
@@ -123,6 +137,15 @@ public class Grid {
 		}
 	}
 
+	/**
+	 * Gets the speed in which the character moves on a given tile.
+	 * 
+	 * @param posX Character position X
+	 * @param posY Character position Y
+	 * @param height Character's height
+	 * @param width Character's width
+	 * @return The current tiles speed
+	 */
 	public int getCurBlockSpeed(int posX, int posY, int height, int width) {
 		halfX = posX + (width / 2);
 		halfY = posY + height;
@@ -134,6 +157,15 @@ public class Grid {
 		return tiles[arrayPosX][arrayPosY].getSpeed();
 	}
 
+	/**
+	 * Method will be used when going into a battle scene to determine what type of envrioment to display the battle in.
+	 * 
+	 * @param posX Character position X
+	 * @param posY Character position Y
+	 * @param height Character's height
+	 * @param width Character's width
+	 * @return The current block type in the form of a character
+	 */
 	public char getCurBlockType(int posX, int posY, int height, int width) {
 		int arrayPosX, arrayPosY;
 
@@ -143,6 +175,19 @@ public class Grid {
 		return tiles[arrayPosX][arrayPosY].getCharType();
 	}
 
+	/**
+	 * Tells if the current tile in front of the character is free or not.
+	 * 
+	 * @param posX Character position X
+	 * @param posY Character position Y
+	 * @param height Character's height
+	 * @param width Character's width
+	 * @param a Are they going up?
+	 * @param b Are they going down?
+	 * @param c Are they going right?
+	 * @param d Are they going left?
+	 * @return true if blocked, false if clear
+	 */
 	public boolean isBlockFree(int posX, int posY, int height, int width,
 			boolean a, boolean b, boolean c, boolean d) {
 		halfX = posX;
@@ -195,15 +240,27 @@ public class Grid {
 		// return tiles[arrayPosX][arrayPosY].isBlocked();
 		return false;
 	}
+	/**
+	 * Used when shifting the the game board to the right
+	 */
 	public void shiftRight() {
 		movePosX = movePosX + 1;
 	}
+	/**
+	 * Used when shifting the the game board to the left
+	 */
 	public void shiftLeft() {
 		movePosX = movePosX - 1;
 	}
+	/**
+	 * Used when shifting the the game board down
+	 */
 	public void shiftDown() {
 		movePosY = movePosY + 1;
 	}
+	/**
+	 * Used when shifting the the game board up
+	 */
 	public void shiftUp() {
 		movePosY = movePosY - 1;
 	}

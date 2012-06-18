@@ -46,6 +46,9 @@ public class GridPanel extends JPanel implements KeyListener {
 		this.c.paintComponent(g);
 	}
 
+	/**
+	 * Performs the main movement checks
+	 */
 	public void run() {
 		setSpeed(getCurBlockSpeed());
 		checkMove();
@@ -156,25 +159,44 @@ public class GridPanel extends JPanel implements KeyListener {
 
 	}
 
+	/**
+	 * @return Current tile speed
+	 */
 	public int getCurBlockSpeed() {
 		return g.getCurBlockSpeed(c.getCharSheetPosX(), c.getCharSheetPosY(),
 				c.getCharHeight(), c.getCharWidth());
 	}
 
+	/**
+	 * @return Current blocks type in the form of a character
+	 */
 	public char getCurBlockType() {
 		return g.getCurBlockType(c.getCharSheetPosX(), c.getCharSheetPosY(),
 				c.getCharHeight(), c.getCharWidth());
 	}
 
+	/**
+	 * @param aa Are they going up?
+	 * @param bb Are they going down?
+	 * @param cc Are they going right?
+	 * @param dd Are they going left?
+	 * @return True if tile in front is blocked, false if is not.
+	 */
 	public boolean isBlocked(boolean aa, boolean bb, boolean cc, boolean dd) {
 		return g.isBlockFree(c.getCharSheetPosX(), c.getCharSheetPosY(),
 				c.getCharHeight(), c.getCharWidth(), aa, bb, cc, dd);
 	}
 
+	/**
+	 * @return True if go to battle, false if not.
+	 */
 	public boolean isBattle() {
 		return battle;
 	}
 
+	/**
+	 * Checks if there is an enemy in current spot
+	 */
 	public void checkEntity() {
 		c.checkForEntity();
 		if (c.checkForEntity() == true) {
@@ -182,14 +204,23 @@ public class GridPanel extends JPanel implements KeyListener {
 		}
 	}
 
+	/**
+	 * @param battle Set battle to be true or false based on checkEntity()
+	 */
 	public void setBattle(boolean battle) {
 		this.battle = battle;
 	}
 
+	/**
+	 * @return Gets the current sprite tick
+	 */
 	public int getSpriteTick() {
 		return spriteTick;
 	}
 
+	/**
+	 * @param spriteTick sets the current sprite tick
+	 */
 	public void setSpriteTick(int spriteTick) {
 		if(spriteTick >= 31) {
 			spriteTick = 0;
@@ -197,6 +228,15 @@ public class GridPanel extends JPanel implements KeyListener {
 		this.spriteTick = spriteTick;
 	}
 
+	/**
+	 * Used to determine which sprite to show to animate the movement of the character
+	 * 
+	 * @param U is player going up?
+	 * @param D is player going down?
+	 * @param R is player going right?
+	 * @param L is player going left?
+	 * @return Current sprite position
+	 */
 	public int getCurSprite(boolean U, boolean D, boolean R, boolean L) {
 		spriteTick  = spriteTick + getSpeed();
 		if(spriteTick >= 75) {
@@ -248,13 +288,22 @@ public class GridPanel extends JPanel implements KeyListener {
 		return 1;
 	}
 
+	/**
+	 * @return Character speed
+	 */
 	public int getSpeed() {
 		return speed;
 	}
 
+	/**
+	 * @param speed Sets the current characters speed
+	 */
 	public void setSpeed(int speed) {
 		this.speed = speed;
 	}
+	/**
+	 * Checks if the character has hit the map edge. If they have then the map is shifted according to which way they are going.
+	 */
 	public void checkMove() {
 		if(c.getCharSheetPosX() > 1000) {
 			g.shiftRight();
@@ -277,6 +326,9 @@ public class GridPanel extends JPanel implements KeyListener {
 			repaint();
 		}
 	}
+	/**
+	 * Resets the checkEntity method in CharacterBoard.
+	 */
 	public void resetRandom() {
 		c.resetRandom();
 	}
