@@ -32,7 +32,7 @@ public class Sound {
 	}
 
 	public void playBG() {
-		soundClip.start();
+		soundClip.loop(3);
 	}
 
 	public void stopBG() {
@@ -40,7 +40,7 @@ public class Sound {
 	}
 
 	public void playBattleMusic() {
-		soundClip.start();
+		soundClip.loop(3);
 	}
 
 	public void stopBattleMusic() {
@@ -48,7 +48,7 @@ public class Sound {
 	}
 
 	public void playVictory() {
-		soundClip.start();
+		soundClip.loop(3);
 	}
 
 	public void stopVictory() {

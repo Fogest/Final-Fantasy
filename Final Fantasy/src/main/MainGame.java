@@ -108,6 +108,7 @@ public class MainGame {
 						frame.pack();
 						frame.setVisible(true);
 						Battle.repaint();
+						background.stopBG();
 						battle.playBattleMusic();
 					}
 				} else if (BattleScene == true && hasWon == true
