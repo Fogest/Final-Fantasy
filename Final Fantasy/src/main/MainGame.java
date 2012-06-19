@@ -124,13 +124,14 @@ public class MainGame {
 						battle.stop();
 						hasWon = Battle.isBattleWon();
 						BattleScene = false;
-						Battle = null;
 						frame.getContentPane().remove(Battle);
+						System.exit(1);
 					}
 				} else if (BattleScene == false && hasWon == false
 						&& showWin == false) {
 					battle.stop();
-					Battle = null;
+					System.exit(1);
+					
 				} else if (BattleScene == false && hasWon == true
 						&& showWin == true) {
 					frame.getContentPane().remove(Battle);

@@ -1,20 +1,40 @@
 package main;
 
+//June 18 2012
 /**
- * @author Nathan Pereira
- *
- */
+* @author Nathan Pereira
+* 
+* Class that is used for playing as a white mage
+* 
+*/
 public class WhiteMage extends Character  {
   private String magicType;
   private int magicLevel;
   
-  
+	/**
+	 * Constructor for white mage same as character but with a magic level(int)
+	 * required
+	 * 
+	 * @param magicLevel
+	 *            determines the strength of the strength of the magic attack
+	 */
   public WhiteMage(int h,int s,int d,int w,int magicLevel)
   {
     super(h,s,d,w);
     this.magicLevel=magicLevel;
   }
-  public void magicAttack(BlackMage bm,WhiteMage wm,Dragoon d,Ninja n,Character w,String t)
+  
+  /**
+   * method is used to buff allies, using magic type variable to determine buff type
+   * 
+ * @param bm used when player selects black mage to buff
+ * @param wm used when player selects white mage to buff
+ * @param d used when player selects dragoon to buff
+ * @param n used when player selects ninja to buff
+ * @param w used when player selects warrior to buff
+ * @param t used to determine who is being buffed
+ */
+public void magicAttack(BlackMage bm,WhiteMage wm,Dragoon d,Ninja n,Character w,String t)
   {
     if(magicType.equals("cure"))
     {
@@ -143,26 +163,32 @@ public class WhiteMage extends Character  {
       if(t.equals("warrior"))
       {
         w.setHealth(100);
-        w.setIsAlive(true);
+        w.setIsAlive();
       }else if(t.equals("dragoon"))
       {
         d.setHealth(100);
-        d.setIsAlive(true);
+        d.setIsAlive();
       }else if(t.equals("whitemage"))
       {
         wm.setHealth(100);
-        wm.setIsAlive(true);
+        wm.setIsAlive();
       }else if(t.equals("blackmage"))
       {
         bm.setHealth(100);
-        bm.setIsAlive(true);
+        bm.setIsAlive();
       }else if(t.equals("ninja"))
       {
-         n.setHealth(100);
-        n.setIsAlive(true);
+        n.setHealth(100);
+        n.setIsAlive();
       }
     }
   }
+	/**
+	 * @param x
+	 *            the move number that was selected by player to be performed
+	 * 
+	 * @return a string that logic uses to get what move was performed
+	 */
   public String getCommand(int x)
   {
     String y;

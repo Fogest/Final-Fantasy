@@ -4,7 +4,12 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.*;
 
-//Nathan Pereira
+//June 18 2012
+/**
+* @author Nathan Pereira
+* 
+* Class that handle the graphics for white mage
+*/
 public class WhiteMageGraphics
 {
   private BufferedImage menu = ImageHelper.loadImage("images/whitemagemenu.jpg");
@@ -14,10 +19,20 @@ public class WhiteMageGraphics
   public WhiteMageGraphics()
   {
   }
+  /**
+   * Draws the options menu that white mage can use
+   * 
+   * @param g Graphics variable required for drawing to screen
+   */
   public void setMenu(Graphics g)
   { 
     g.drawImage(menu, 257, 420, 430,150,null);
   }
+  /**
+   * Draws the white mage standing
+   * 
+   * @param g Graphics variable required for drawing to screen
+   */
   public void setStand(Graphics g)
   { 
     g.drawImage(wma[5], 770,310, 50,75,null);
