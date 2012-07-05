@@ -3,9 +3,6 @@
  */
 package main;
 
-import java.awt.Color;
-import java.awt.Graphics;
-
 import javax.swing.JFrame;
 
 /**
@@ -27,6 +24,9 @@ public class MainGame {
 	private long reportedFramerate;
 	private boolean isLoad = true;
 	private boolean isMenu = true;
+	
+	private int width = 615;
+	private int height = 1024;
 
 	/**
 	 * Creates a new main game
@@ -34,7 +34,7 @@ public class MainGame {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		MainGame m = new MainGame();
+		new MainGame();
 	}
 
 	/**
@@ -44,7 +44,6 @@ public class MainGame {
 		boolean BattleScene = false;
 		boolean hasWon = true;
 		boolean showWin = false;
-		boolean load = true;
 		JFrame frame = new JFrame("Final Fantasy");
 		GridPanel grid = new GridPanel("overworld");
 		BattlePanel Battle = null;
@@ -200,5 +199,21 @@ public class MainGame {
 	 */ 
 	public void setMenu(boolean menu) {
 		this.menu = menu;
+	}
+
+	public int getWidth() {
+		return width;
+	}
+
+	public void setWidth(int width) {
+		this.width = width;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	public void setHeight(int height) {
+		this.height = height;
 	}
 }
