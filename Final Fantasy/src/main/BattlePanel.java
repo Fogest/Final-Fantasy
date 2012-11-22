@@ -58,11 +58,6 @@ public class BattlePanel extends JPanel implements MouseListener, KeyListener {
 		if (logic.getEnemyState(2) == false && currente == 3) {
 			currente = 1;
 		}
-		System.out.println(logic.getPartyState(1)+" 1");
-		System.out.println(logic.getPartyState(2)+" 2");
-		System.out.println(logic.getPartyState(3)+" 3");
-		System.out.println(logic.getPartyState(4)+" 4");
-		System.out.println(logic.getPartyState(5)+" 5");
 		repaint();
 	}
 
