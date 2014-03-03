@@ -16,7 +16,8 @@ public class TileType {
 	/**
 	 * Defines the type of tile based on the character given
 	 * 
-	 * @param t The character of the tile type. 
+	 * @param t
+	 * The character of the tile type.
 	 */
 	public TileType(char t) {
 		this.setType(t);
@@ -24,43 +25,53 @@ public class TileType {
 			setSpeed(3);
 			setSpritePos(0);
 			setBlocked(false);
-		} else if (t == 'r') {
+		}
+		else if (t == 'r') {
 			setSpeed(4);
 			setSpritePos(1);
 			setBlocked(false);
-		} else if (t == 'd') {
+		}
+		else if (t == 'd') {
 			setSpeed(3);
 			setSpritePos(2);
 			setBlocked(false);
-		} else if (t == 'm') {
+		}
+		else if (t == 'm') {
 			setSpeed(2);
 			setSpritePos(4);
 			setBlocked(false);
-		} else if (t == 'c') {
+		}
+		else if (t == 'c') {
 			setSpeed(3);
 			setSpritePos(5);
 			setBlocked(false);
-		} else if (t == 's') {
+		}
+		else if (t == 's') {
 			setSpeed(2);
 			setSpritePos(10);
 			setBlocked(false);
-		} else if (t == 'w') {
+		}
+		else if (t == 'w') {
 			setSpeed(1);
 			setSpritePos(6);
 			setBlocked(false);
-		} else if (t == 'l') {
+		}
+		else if (t == 'l') {
 			setSpeed(0);
 			setSpritePos(7);
 			setBlocked(true);
-		} else if (t == 'x') {
+		}
+		else if (t == 'x') {
 			setSpeed(1);
 			setSpritePos(8);
 			setBlocked(false);
-		} else if (t == 'b') {
+		}
+		else if (t == 'b') {
 			setSpeed(5);
 			setSpritePos(9);
 			setBlocked(false);
-		} else if (t == 'p') {
+		}
+		else if (t == 'p') {
 			setSpeed(3);
 			setSpritePos(3);
 			setBlocked(false);
@@ -75,7 +86,8 @@ public class TileType {
 	}
 
 	/**
-	 * @param speed Sets the speed of the tile
+	 * @param speed
+	 * Sets the speed of the tile
 	 */
 	public void setSpeed(int speed) {
 		this.speed = speed;
@@ -89,7 +101,8 @@ public class TileType {
 	}
 
 	/**
-	 * @param spritePos Sets the sprite position of the tile
+	 * @param spritePos
+	 * Sets the sprite position of the tile
 	 */
 	public void setSpritePos(int spritePos) {
 		this.spritePos = spritePos;
@@ -103,7 +116,8 @@ public class TileType {
 	}
 
 	/**
-	 * @param blocked Sets if the tile is blocked or not.
+	 * @param blocked
+	 * Sets if the tile is blocked or not.
 	 */
 	public void setBlocked(boolean blocked) {
 		this.blocked = blocked;
@@ -117,7 +131,8 @@ public class TileType {
 	}
 
 	/**
-	 * @param type TileType
+	 * @param type
+	 * TileType
 	 */
 	public void setType(char type) {
 		this.type = type;

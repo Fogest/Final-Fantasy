@@ -51,7 +51,8 @@ public class Menu extends JPanel implements MouseListener, MouseMotionListener {
 	public Menu() {
 		try {
 			splash = ImageIO.read(new File("images/splash.jpg"));
-		} catch (IOException e) {
+		}
+		catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -66,20 +67,23 @@ public class Menu extends JPanel implements MouseListener, MouseMotionListener {
 		if ((getMousePosX() > posX) && (getMousePosX() < posX + 145)
 				&& (getMousePosY() > posY) && (getMousePosY() < posY + 30)) {
 			setF1(new Font("Arial", Font.BOLD, 30));
-		} else {
+		}
+		else {
 			setF1(new Font("Arial", Font.PLAIN, 30));
 		}
 
 		if ((getMousePosX() > posX) && (getMousePosX() < posX + 95)
 				&& (getMousePosY() > posY + 31) && (getMousePosY() < posY + 60)) {
 			setF2(new Font("Arial", Font.BOLD, 30));
-		} else {
+		}
+		else {
 			setF2(new Font("Arial", Font.PLAIN, 30));
 		}
 		if ((getMousePosX() > posX) && (getMousePosX() < posX + 60)
 				&& (getMousePosY() > posY + 61) && (getMousePosY() < posY + 90)) {
 			setF3(new Font("Arial", Font.BOLD, 30));
-		} else {
+		}
+		else {
 			setF3(new Font("Arial", Font.PLAIN, 30));
 		}
 		repaint();
@@ -118,7 +122,8 @@ public class Menu extends JPanel implements MouseListener, MouseMotionListener {
 			g.setFont(f3);
 			g.drawString("Exit", posX, posY + 60);
 
-		} else if (isCredits()) {
+		}
+		else if (isCredits()) {
 			g.setColor(Color.BLACK);
 
 			g.setFont(creditFont);
@@ -142,7 +147,7 @@ public class Menu extends JPanel implements MouseListener, MouseMotionListener {
 
 	/**
 	 * @param menu
-	 *            If in menu or not
+	 * If in menu or not
 	 */
 	public void setMenu(boolean menu) {
 		this.isMenu = menu;
@@ -152,7 +157,7 @@ public class Menu extends JPanel implements MouseListener, MouseMotionListener {
 	 * Used to change the first set of texts font
 	 * 
 	 * @param f1
-	 *            Set font
+	 * Set font
 	 */
 	public void setF1(Font f1) {
 		this.f1 = f1;
@@ -162,7 +167,7 @@ public class Menu extends JPanel implements MouseListener, MouseMotionListener {
 	 * Used to change the second set of texts font
 	 * 
 	 * @param f2
-	 *            Set font
+	 * Set font
 	 */
 	public void setF2(Font f2) {
 		this.f2 = f2;
@@ -172,7 +177,7 @@ public class Menu extends JPanel implements MouseListener, MouseMotionListener {
 	 * Used to change the third set of texts font
 	 * 
 	 * @param f3
-	 *            Set font
+	 * Set font
 	 */
 	public void setF3(Font f3) {
 		this.f3 = f3;
@@ -192,21 +197,23 @@ public class Menu extends JPanel implements MouseListener, MouseMotionListener {
 				setMenu(false);
 				setCredits(false);
 				setMain(false);
-			} else if ((x > posX) && (x < posX + 95) && (y > posY + 31)
+			}
+			else if ((x > posX) && (x < posX + 95) && (y > posY + 31)
 					&& (y < posY + 60)) {
 				setCredits(true);
 				setMain(false);
-			} else if ((x > posX) && (x < posX + 60) && (y > posY + 61)
+			}
+			else if ((x > posX) && (x < posX + 60) && (y > posY + 61)
 					&& (y < posY + 90)) {
 				System.exit(1);
 			}
 		}
-		else if(isCredits()) {
-		if ((x > posX) && (x < posX + 60) && (y > posY + 61)
-				&& (y < posY + 90)) {
-			setMain(true);
-			setCredits(false);
-		}
+		else if (isCredits()) {
+			if ((x > posX) && (x < posX + 60) && (y > posY + 61)
+					&& (y < posY + 90)) {
+				setMain(true);
+				setCredits(false);
+			}
 		}
 
 	}
@@ -290,7 +297,7 @@ public class Menu extends JPanel implements MouseListener, MouseMotionListener {
 
 	/**
 	 * @param mousePosX
-	 *            Set X position of mouse
+	 * Set X position of mouse
 	 */
 	public void setMousePosX(int mousePosX) {
 		this.mousePosX = mousePosX;
@@ -305,7 +312,7 @@ public class Menu extends JPanel implements MouseListener, MouseMotionListener {
 
 	/**
 	 * @param mousePosY
-	 *            Set Y position of mouse
+	 * Set Y position of mouse
 	 */
 	public void setMousePosY(int mousePosY) {
 		this.mousePosY = mousePosY;
@@ -320,7 +327,7 @@ public class Menu extends JPanel implements MouseListener, MouseMotionListener {
 
 	/**
 	 * @param load
-	 *            Is loading or not?
+	 * Is loading or not?
 	 */
 	public void setLoad(boolean load) {
 		this.load = load;

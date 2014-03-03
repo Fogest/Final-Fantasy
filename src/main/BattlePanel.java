@@ -5,11 +5,13 @@ import java.awt.event.*;
 import java.awt.image.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
 //June 18 2012
 /**
  * @author Nathan Pereira
- *
- *is the main class that handels user input and graphics for the actions performed
+ * 
+ * is the main class that handels user input and graphics for the actions
+ * performed
  */
 public class BattlePanel extends JPanel implements MouseListener, KeyListener {
 	private BufferedImage battlelayout = ImageHelper
@@ -30,11 +32,12 @@ public class BattlePanel extends JPanel implements MouseListener, KeyListener {
 	private EnemyGraphics e = new EnemyGraphics();
 	private Logic logic = new Logic(100, 5, 10);
 	Dimension screenSize = new Dimension(1024, 580);
-	
+
 	/**
 	 * Sets mouse listener and key listener, also set panel size
 	 * 
-	 * @param x character that tells the constructor what background to display
+	 * @param x
+	 * character that tells the constructor what background to display
 	 */
 	public BattlePanel(char x) {
 		this.x = x;
@@ -42,11 +45,12 @@ public class BattlePanel extends JPanel implements MouseListener, KeyListener {
 		this.addKeyListener(this);
 		setPreferredSize(screenSize);
 	}
-	
+
 	/**
 	 * Checks if enemy is alive
 	 * 
-	 * Checks if enemy is alive and changes the enemy that the user has selected to an enemy that is currently alive
+	 * Checks if enemy is alive and changes the enemy that the user has selected
+	 * to an enemy that is currently alive
 	 */
 	public void run() {
 		if (logic.getEnemyState(0) == false && currente == 1) {
@@ -74,21 +78,29 @@ public class BattlePanel extends JPanel implements MouseListener, KeyListener {
 		g.setColor(Color.white);
 		if (x == 'g') {
 			g.drawImage(background[0], 0, 0, 1024, 390, null);
-		} else if (x == 'r') {
+		}
+		else if (x == 'r') {
 			g.drawImage(background[1], 0, 0, 1024, 390, null);
-		} else if (x == 'd') {
+		}
+		else if (x == 'd') {
 			g.drawImage(background[2], 0, 0, 1024, 390, null);
-		} else if (x == 'm') {
+		}
+		else if (x == 'm') {
 			g.drawImage(background[3], 0, 0, 1024, 390, null);
-		} else if (x == 'c') {
+		}
+		else if (x == 'c') {
 			g.drawImage(background[4], 0, 0, 1024, 390, null);
-		} else if (x == 'w') {
+		}
+		else if (x == 'w') {
 			g.drawImage(background[5], 0, 0, 1024, 390, null);
-		} else if (x == 'x') {
+		}
+		else if (x == 'x') {
 			g.drawImage(background[6], 0, 0, 1024, 390, null);
-		} else if (x == 'b') {
+		}
+		else if (x == 'b') {
 			g.drawImage(background[7], 0, 0, 1024, 390, null);
-		} else if (x == 's') {
+		}
+		else if (x == 's') {
 			g.drawImage(background[8], 0, 0, 1024, 390, null);
 		}
 
@@ -151,7 +163,8 @@ public class BattlePanel extends JPanel implements MouseListener, KeyListener {
 	}
 
 	/*
-	 * (non-Javadoc) Handles the mouse actions and performs the action that the user has selected
+	 * (non-Javadoc) Handles the mouse actions and performs the action that the
+	 * user has selected
 	 * 
 	 * @see java.awt.event.MouseListener#mouseClicked(java.awt.event.MouseEvent)
 	 */
@@ -164,23 +177,27 @@ public class BattlePanel extends JPanel implements MouseListener, KeyListener {
 			if ((y < 450) && (y > 425)) {
 				logic.performAction(currentc, 1, currente, currenth);
 				repaint();
-			} else
+			}
+			else
 			// row two
 			if ((y < 490) && (y > 460)) {
 				logic.performAction(currentc, 3, currente, currenth);
 				repaint();
-			} else
+			}
+			else
 			// row three
 			if ((y < 525) && (y > 495)) {
 				logic.performAction(currentc, 5, currente, currenth);
 				repaint();
-			} else
+			}
+			else
 			// row four
 			if ((y < 560) && (y > 530)) {
 				logic.performAction(currentc, 7, currente, currenth);
 				repaint();
 			}
-		} else
+		}
+		else
 		// column 2
 		if ((x > 535) && (x < 650)) {
 			// row one
@@ -189,39 +206,49 @@ public class BattlePanel extends JPanel implements MouseListener, KeyListener {
 					logic.performAction(currentc, 2, currente, currenth);
 				}
 				repaint();
-			} else
+			}
+			else
 			// row two
 			if ((y < 490) && (y > 460)) {
 				logic.performAction(currentc, 4, currente, currenth);
 				repaint();
-			} else
+			}
+			else
 			// row three
 			if ((y < 525) && (y > 495)) {
 				logic.performAction(currentc, 6, currente, currenth);
 				repaint();
 			}
-		} else if (x > 210 && x < 345) {
+		}
+		else if (x > 210 && x < 345) {
 			if (y > 75 && y < 215) {
 				currente = 0;
-			} else if (y > 215 && y < 350) {
+			}
+			else if (y > 215 && y < 350) {
 				currente = 1;
 			}
-		} else if (x > 50 && x < 185) {
+		}
+		else if (x > 50 && x < 185) {
 			if (y > 130 && y < 275) {
 				currente = 2;
 			}
-		} else if (x > 770 && x < 815) {
+		}
+		else if (x > 770 && x < 815) {
 			if (y > 65 && y < 135) {
 				currentc = 1;
-			} else if (y > 165 && y < 240) {
+			}
+			else if (y > 165 && y < 240) {
 				currentc = 3;
-			} else if (y > 310 && y < 385) {
+			}
+			else if (y > 310 && y < 385) {
 				currentc = 5;
 			}
-		} else if (x > 845 && x < 895) {
+		}
+		else if (x > 845 && x < 895) {
 			if (y > 95 && y < 175) {
 				currentc = 2;
-			} else if (y > 240 && y < 317) {
+			}
+			else if (y > 240 && y < 317) {
 				currentc = 4;
 			}
 		}
@@ -230,7 +257,7 @@ public class BattlePanel extends JPanel implements MouseListener, KeyListener {
 
 	/**
 	 * Checks if battle is over
-	 *
+	 * 
 	 * @return true if user has won, False if game is still going on
 	 */
 	public boolean isGameOver() {
@@ -239,38 +266,48 @@ public class BattlePanel extends JPanel implements MouseListener, KeyListener {
 
 	/**
 	 * Checks if battle is won
-	 *
+	 * 
 	 * @return true if user has won, False if game is still going on
 	 */
 	public boolean isBattleWon() {
 		return logic.isBattleWon();
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.awt.event.MouseListener#mouseEntered(java.awt.event.MouseEvent)
 	 */
 	public void mouseEntered(MouseEvent paramMouseEvent) {
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.awt.event.MouseListener#mouseExited(java.awt.event.MouseEvent)
 	 */
 	public void mouseExited(MouseEvent paramMouseEvent) {
 	}
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
 	 */
 	public void mouseReleased(MouseEvent paramMouseEvent) {
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.awt.event.MouseListener#mousePressed(java.awt.event.MouseEvent)
 	 */
 	public void mousePressed(MouseEvent paramMouseEvent) {
 	}
 
-	/* (non-Javadoc) changes who the white mage buffs based on key pressed
+	/*
+	 * (non-Javadoc) changes who the white mage buffs based on key pressed
 	 * 
 	 * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
 	 */
@@ -278,32 +315,38 @@ public class BattlePanel extends JPanel implements MouseListener, KeyListener {
 		int id = paramKeyEvent.getKeyCode();
 		if (id == KeyEvent.VK_Q) {
 			currenth = "blackmage";
-		} else if (id == KeyEvent.VK_W) {
+		}
+		else if (id == KeyEvent.VK_W) {
 			currenth = "ninja";
-		} else if (id == KeyEvent.VK_E) {
+		}
+		else if (id == KeyEvent.VK_E) {
 			currenth = "warrior";
-		} else if (id == KeyEvent.VK_R) {
+		}
+		else if (id == KeyEvent.VK_R) {
 			currenth = "dragoon";
-		} else if (id == KeyEvent.VK_T) {
+		}
+		else if (id == KeyEvent.VK_T) {
 			currenth = "whitemage";
 		}
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.awt.event.KeyListener#keyReleased(java.awt.event.KeyEvent)
 	 */
 	public void keyReleased(KeyEvent paramKeyEvent) {
 	}
 
-	
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.awt.event.KeyListener#keyTyped(java.awt.event.KeyEvent)
 	 */
 	public void keyTyped(KeyEvent paramKeyEvent) {
 
 	}
 
-	
 	public static void main(String[] args) {
 		JFrame frame = new JFrame("Final Fantasy");
 		BattlePanel p = new BattlePanel('x');

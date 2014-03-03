@@ -33,13 +33,15 @@ public class CharacterBoard {
 	private boolean entity = false;
 
 	private int generated;
+
 	/**
 	 * When a new character is created, the new sprite array is read in.
 	 */
 	public CharacterBoard() {
 		try {
 			charSheetBig = ImageIO.read(new File("sprites/player.png"));
-		} catch (IOException e) {
+		}
+		catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -63,13 +65,13 @@ public class CharacterBoard {
 	/**
 	 * Draws to screen the current character sprite
 	 * 
-	 * @param g Graphics
+	 * @param g
+	 * Graphics
 	 */
 	public void paintComponent(Graphics g) {
 		g.drawImage(charSheet[spritePos], charSheetPosX, charSheetPosY, size1,
 				size2, null);
 	}
-
 
 	/**
 	 * Gets the current sprite position
@@ -83,7 +85,8 @@ public class CharacterBoard {
 	/**
 	 * Sets sprite position for character on the board
 	 * 
-	 * @param spritePos Sets the sprite position
+	 * @param spritePos
+	 * Sets the sprite position
 	 */
 	public void setSpritePos(int spritePos) {
 		this.spritePos = spritePos;
@@ -99,7 +102,8 @@ public class CharacterBoard {
 	}
 
 	/**
-	 * @param charSheetPosX Integer to set characters x position
+	 * @param charSheetPosX
+	 * Integer to set characters x position
 	 */
 	public void setCharSheetPosX(int charSheetPosX) {
 		this.charSheetPosX = charSheetPosX;
@@ -113,7 +117,8 @@ public class CharacterBoard {
 	}
 
 	/**
-	 * @param charSheetPosY Interger to set characters Y position
+	 * @param charSheetPosY
+	 * Interger to set characters Y position
 	 */
 	public void setCharSheetPosY(int charSheetPosY) {
 		this.charSheetPosY = charSheetPosY;
@@ -136,16 +141,18 @@ public class CharacterBoard {
 	/**
 	 * Shifts the character right by the given amount
 	 * 
-	 * @param amount The amount which to move the character
+	 * @param amount
+	 * The amount which to move the character
 	 */
 	public void moveRight(int amount) {
 		this.charSheetPosX = this.charSheetPosX + amount;
 	}
-	
+
 	/**
 	 * Shifts the character left by the given amount
 	 * 
-	 * @param amount The amount which to move the character
+	 * @param amount
+	 * The amount which to move the character
 	 */
 	public void moveLeft(int amount) {
 		this.charSheetPosX = this.charSheetPosX - amount;
@@ -154,7 +161,8 @@ public class CharacterBoard {
 	/**
 	 * Shifts the character up by the given amount
 	 * 
-	 * @param amount The amount which to move the character
+	 * @param amount
+	 * The amount which to move the character
 	 */
 	public void moveUp(int amount) {
 		this.charSheetPosY = this.charSheetPosY - amount;
@@ -163,7 +171,8 @@ public class CharacterBoard {
 	/**
 	 * Shifts the character down by the given amount
 	 * 
-	 * @param amount The amount which to move the character
+	 * @param amount
+	 * The amount which to move the character
 	 */
 	public void moveDown(int amount) {
 		this.charSheetPosY = this.charSheetPosY + amount;
@@ -179,11 +188,13 @@ public class CharacterBoard {
 		generated = gen.nextInt(1000);
 		if (generated == 1) {
 			entity = true;
-		} else {
+		}
+		else {
 			entity = false;
 		}
 		return entity;
 	}
+
 	/**
 	 * Simply used to reset the checkForEntity value when exiting a battle.
 	 */

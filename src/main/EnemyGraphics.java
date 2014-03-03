@@ -8,7 +8,7 @@ import java.awt.image.*;
 /**
  * @author Nathan Pereira
  * 
- *         Class that handel the graphics for the enemies
+ * Class that handel the graphics for the enemies
  */
 public class EnemyGraphics {
 	private BufferedImage head2 = ImageHelper.loadImage("images/head.png");
@@ -29,7 +29,7 @@ public class EnemyGraphics {
 	 * Draws the head
 	 * 
 	 * @param g
-	 *            Graphics variable required for drawing to screen
+	 * Graphics variable required for drawing to screen
 	 */
 	public void drawHead(Graphics g) {
 		g.drawImage(head, 200, 75, 150, 150, null);
@@ -39,7 +39,7 @@ public class EnemyGraphics {
 	 * Draws the troll
 	 * 
 	 * @param g
-	 *            Graphics variable required for drawing to screen
+	 * Graphics variable required for drawing to screen
 	 */
 	public void drawTroll(Graphics g) {
 		g.drawImage(troll, 200, 200, 150, 150, null);
@@ -49,7 +49,7 @@ public class EnemyGraphics {
 	 * Draws the captain
 	 * 
 	 * @param g
-	 *            Graphics variable required for drawing to screen
+	 * Graphics variable required for drawing to screen
 	 */
 	public void drawCaptain(Graphics g) {
 		g.drawImage(captain, 40, 125, 150, 150, null);

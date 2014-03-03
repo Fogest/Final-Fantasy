@@ -4,7 +4,7 @@ package main;
 /**
  * @author Nathan Pereira
  * 
- *         Claas that is used for playing as a dragoon
+ * Claas that is used for playing as a dragoon
  * 
  */
 public class Dragoon extends Character {
@@ -20,7 +20,7 @@ public class Dragoon extends Character {
 	 * A more powerful version of attack
 	 * 
 	 * @param e
-	 *            Enemy that the player has selected
+	 * Enemy that the player has selected
 	 */
 	public void Jump(Enemy e) {
 		int attackPower = super.getWeaponValue() + super.getStrength()
@@ -30,7 +30,7 @@ public class Dragoon extends Character {
 
 	/**
 	 * @param x
-	 *            the move number that was selected by player to be performed
+	 * the move number that was selected by player to be performed
 	 * 
 	 * @return a string that logic uses to get what move was preformed
 	 */
@@ -38,11 +38,14 @@ public class Dragoon extends Character {
 		String y;
 		if (x == 1) {
 			y = "attack";
-		} else if (x == 2) {
+		}
+		else if (x == 2) {
 			y = "defend";
-		} else if (x == 3) {
+		}
+		else if (x == 3) {
 			y = "jump";
-		} else {
+		}
+		else {
 			y = "";
 		}
 		return y;

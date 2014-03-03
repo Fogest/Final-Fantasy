@@ -4,8 +4,8 @@ package main;
 /**
  * @author Nathan Pereira
  * 
- *         Claas that is used for the base of the more specialized characters,
- *         also used to represent a warrior in battle
+ * Claas that is used for the base of the more specialized characters,
+ * also used to represent a warrior in battle
  * 
  */
 public class Character {
@@ -18,13 +18,13 @@ public class Character {
 
 	/**
 	 * @param h
-	 *            used to set initial health value
+	 * used to set initial health value
 	 * @param s
-	 *            used to set initial strength value
+	 * used to set initial strength value
 	 * @param d
-	 *            used to set initial defence value
+	 * used to set initial defence value
 	 * @param w
-	 *            used to set weapon value
+	 * used to set weapon value
 	 */
 	public Character(int h, int s, int d, int w) {
 		this.health = h;
@@ -39,7 +39,7 @@ public class Character {
 	 * that number to deal damage to enemy selected
 	 * 
 	 * @param e
-	 *            Enemy that the player has select to hit
+	 * Enemy that the player has select to hit
 	 */
 	public void attack(Enemy e) {
 		int attackPower = weaponValue + (strength / 4) + (level / 4);
@@ -55,8 +55,8 @@ public class Character {
 	 * character is dead
 	 * 
 	 * @param attackPower
-	 *            the amount of damage that would be taken if player had no
-	 *            defense
+	 * the amount of damage that would be taken if player had no
+	 * defense
 	 */
 	public void damageTaken(int attackPower) {
 		int damage = attackPower - totalDefence;
@@ -70,7 +70,7 @@ public class Character {
 
 	/**
 	 * @param x
-	 *            the move number that was selected by player to be performed
+	 * the move number that was selected by player to be performed
 	 * 
 	 * @return a string that logic uses to get what move was preformed
 	 */
@@ -78,9 +78,11 @@ public class Character {
 		String y;
 		if (x == 1) {
 			y = "attack";
-		} else if (x == 2) {
+		}
+		else if (x == 2) {
 			y = "defend";
-		} else {
+		}
+		else {
 			y = "";
 		}
 		return y;
@@ -92,9 +94,11 @@ public class Character {
 	public boolean isAlive() {
 		if (isAlive == true) {
 			return true;
-		} else if (isAlive == false) {
+		}
+		else if (isAlive == false) {
 			return false;
-		} else {
+		}
+		else {
 			return false;
 		}
 	}
@@ -108,7 +112,7 @@ public class Character {
 
 	/**
 	 * @param level
-	 *            the level to set
+	 * the level to set
 	 */
 	public void setLevel(int level) {
 		this.level = level;
@@ -123,7 +127,7 @@ public class Character {
 
 	/**
 	 * @param strength
-	 *            the strength to set
+	 * the strength to set
 	 */
 	public void setStrength(int strength) {
 		this.strength = strength;
@@ -138,7 +142,7 @@ public class Character {
 
 	/**
 	 * @param totalDefence
-	 *            the totalDefence to set
+	 * the totalDefence to set
 	 */
 	public void setTotalDefence(int totalDefence) {
 		this.totalDefence = totalDefence;
@@ -153,7 +157,7 @@ public class Character {
 
 	/**
 	 * @param weaponValue
-	 *            the weaponValue to set
+	 * the weaponValue to set
 	 */
 	public void setWeaponValue(int weaponValue) {
 		this.weaponValue = weaponValue;
@@ -168,7 +172,7 @@ public class Character {
 
 	/**
 	 * @param health
-	 *            the health to set
+	 * the health to set
 	 */
 	public void setHealth(int health) {
 		this.health = health;
@@ -181,7 +185,8 @@ public class Character {
 	public void setIsAlive() {
 		if (getHealth() <= 0) {
 			isAlive = false;
-		} else {
+		}
+		else {
 			isAlive = true;
 		}
 	}

@@ -6,10 +6,10 @@ import java.awt.image.*;
 
 //June 18 2012
 /**
-* @author Nathan Pereira
-* 
-* Class that handel the graphics for ninja
-*/
+ * @author Nathan Pereira
+ * 
+ * Class that handel the graphics for ninja
+ */
 public class NinjaGraphics {
 	private BufferedImage menu = ImageHelper.loadImage("images/ninjamenu.jpg");
 	private BufferedImage ninjaactions = ImageHelper
@@ -24,7 +24,8 @@ public class NinjaGraphics {
 	/**
 	 * Draws the options menu that ninja can use
 	 * 
-	 * @param g Graphics variable required for drawing to screen
+	 * @param g
+	 * Graphics variable required for drawing to screen
 	 */
 	public void setMenu(Graphics g) {
 		g.drawImage(menu, 257, 420, 430, 150, null);
@@ -33,7 +34,8 @@ public class NinjaGraphics {
 	/**
 	 * Draws the ninja standing
 	 * 
-	 * @param g Graphics variable required for drawing to screen
+	 * @param g
+	 * Graphics variable required for drawing to screen
 	 */
 	public void setStand(Graphics g) {
 		g.drawImage(na[2], 850, 100, 50, 75, null);

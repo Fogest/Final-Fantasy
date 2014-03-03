@@ -4,7 +4,7 @@ package main;
 /**
  * @author Nathan Pereira
  * 
- *         Claas that is used for representing enemies in battle
+ * Claas that is used for representing enemies in battle
  * 
  */
 public class Enemy {
@@ -16,11 +16,11 @@ public class Enemy {
 
 	/**
 	 * @param h
-	 *            used to set health value
+	 * used to set health value
 	 * @param d
-	 *            used to set defence value
+	 * used to set defence value
 	 * @param ap
-	 *            used to set attack power
+	 * used to set attack power
 	 */
 	public Enemy(int h, int d, int ap) {
 		health = h;
@@ -33,7 +33,7 @@ public class Enemy {
 	 * that number to deal damage to enemy selected
 	 * 
 	 * @param c
-	 *            the warrior selected to be attacked
+	 * the warrior selected to be attacked
 	 */
 	public void attackc(Character c) {
 		c.damageTaken(attackPower);
@@ -44,7 +44,7 @@ public class Enemy {
 	 * that number to deal damage to enemy selected
 	 * 
 	 * @param bm
-	 *            the dragoon selected to be attacked
+	 * the dragoon selected to be attacked
 	 */
 	public void attackd(Dragoon d) {
 		d.damageTaken(attackPower);
@@ -55,7 +55,7 @@ public class Enemy {
 	 * that number to deal damage to enemy selected
 	 * 
 	 * @param bm
-	 *            the white mage selected to be attacked
+	 * the white mage selected to be attacked
 	 */
 	public void attackwm(WhiteMage wm) {
 		wm.damageTaken(attackPower);
@@ -66,7 +66,7 @@ public class Enemy {
 	 * that number to deal damage to enemy selected
 	 * 
 	 * @param bm
-	 *            the black mage selected to be attacked
+	 * the black mage selected to be attacked
 	 */
 	public void attackbm(BlackMage bm) {
 		bm.damageTaken(attackPower);
@@ -77,7 +77,7 @@ public class Enemy {
 	 * that number to deal damage to enemy selected
 	 * 
 	 * @param bm
-	 *            the ninja selected to be attacked
+	 * the ninja selected to be attacked
 	 */
 	public void attackn(Ninja n) {
 		n.damageTaken(attackPower);
@@ -88,8 +88,8 @@ public class Enemy {
 	 * character is dead
 	 * 
 	 * @param attackPower
-	 *            the amount of damage that would be taken if player had no
-	 *            defense
+	 * the amount of damage that would be taken if player had no
+	 * defense
 	 */
 	public void damageTaken(int attackPower) {
 
@@ -108,9 +108,11 @@ public class Enemy {
 	public boolean isAlive() {
 		if (isAlive == true) {
 			return true;
-		} else if (isAlive == false) {
+		}
+		else if (isAlive == false) {
 			return false;
-		} else {
+		}
+		else {
 			return false;
 		}
 	}

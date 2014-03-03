@@ -8,7 +8,7 @@ import java.awt.image.*;
 /**
  * @author Nathan Pereira
  * 
- *         Class that handel the graphics for black mage
+ * Class that handel the graphics for black mage
  */
 public class DragoonGraphics {
 	private BufferedImage menu = ImageHelper
@@ -26,7 +26,7 @@ public class DragoonGraphics {
 	 * Draws the options menu that dragoon can use
 	 * 
 	 * @param g
-	 *            Graphics variable required for drawing to screen
+	 * Graphics variable required for drawing to screen
 	 */
 	public void setMenu(Graphics g) {
 		g.drawImage(menu, 257, 420, 430, 150, null);
@@ -36,7 +36,7 @@ public class DragoonGraphics {
 	 * Draws the dragoon standing
 	 * 
 	 * @param g
-	 *            Graphics variable required for drawing to screen
+	 * Graphics variable required for drawing to screen
 	 */
 	public void setStand(Graphics g) {
 

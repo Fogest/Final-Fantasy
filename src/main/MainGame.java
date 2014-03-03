@@ -24,7 +24,7 @@ public class MainGame {
 	private long reportedFramerate;
 	private boolean isLoad = true;
 	private boolean isMenu = true;
-	
+
 	private int width = 615;
 	private int height = 1024;
 
@@ -38,7 +38,7 @@ public class MainGame {
 	}
 
 	/**
-	 *  Runs the whole game and handles the logic of switching panels
+	 * Runs the whole game and handles the logic of switching panels
 	 */
 	public void run() {
 		boolean BattleScene = false;
@@ -67,29 +67,28 @@ public class MainGame {
 		// accumulates elapsed time over multiple frames
 		long totalElapsedTime = 0;
 		// the actual calculated framerate reported
-		
-		
+
 		while (true) {
-			while(isMenu == true && isLoad == true) {
+			while (isMenu == true && isLoad == true) {
 				menu.run();
 				this.isMenu = menu.isMenu();
 				this.isLoad = menu.isLoad();
 			}
-			if(isMenu == false && isLoad == true) {
+			if (isMenu == false && isLoad == true) {
 				menu.load();
 				menu.setLoad(false);
-			    background = new Sound("bg");
-			    background.play();
-			    this.isMenu = menu.isMenu();
+				background = new Sound("bg");
+				background.play();
+				this.isMenu = menu.isMenu();
 				this.isLoad = menu.isLoad();
-			    frame.getContentPane().remove(menu);
-			    menu = null;
-			    frame.getContentPane().add(grid);
-			    frame.repaint();
-			    frame.setVisible(true);
-			    grid.repaint();
-			    victory = new Sound("win");
-			    battle = new Sound("battle");
+				frame.getContentPane().remove(menu);
+				menu = null;
+				frame.getContentPane().add(grid);
+				frame.repaint();
+				frame.setVisible(true);
+				grid.repaint();
+				victory = new Sound("win");
+				battle = new Sound("battle");
 			}
 			while (isMenu == false && isLoad == false) {
 				// save the start time
@@ -98,7 +97,8 @@ public class MainGame {
 				if (BattleScene == false && hasWon == true && showWin == false) {
 					if (grid.isBattle() == false) {
 						grid.run();
-					} else if (grid.isBattle() == true) {
+					}
+					else if (grid.isBattle() == true) {
 
 						Battle = new BattlePanel(grid.getCurBlockType());
 						frame.getContentPane().remove(grid);
@@ -111,7 +111,8 @@ public class MainGame {
 						background.stop();
 						battle.play();
 					}
-				} else if (BattleScene == true && hasWon == true
+				}
+				else if (BattleScene == true && hasWon == true
 						&& showWin == false) {
 					Battle.run();
 					showWin = Battle.isBattleWon();
@@ -126,12 +127,14 @@ public class MainGame {
 						frame.getContentPane().remove(Battle);
 						System.exit(1);
 					}
-				} else if (BattleScene == false && hasWon == false
+				}
+				else if (BattleScene == false && hasWon == false
 						&& showWin == false) {
 					battle.stop();
 					System.exit(1);
-					
-				} else if (BattleScene == false && hasWon == true
+
+				}
+				else if (BattleScene == false && hasWon == true
 						&& showWin == true) {
 					frame.getContentPane().remove(Battle);
 					Battle = null;
@@ -147,13 +150,15 @@ public class MainGame {
 					battle.stop();
 					try {
 						Thread.sleep(4000);
-					} catch (InterruptedException e) {
+					}
+					catch (InterruptedException e) {
 						break;
 					}
 					victory.stop();
 					try {
 						Thread.sleep(2000);
-					} catch (InterruptedException e) {
+					}
+					catch (InterruptedException e) {
 						break;
 					}
 					background.play();
@@ -165,11 +170,13 @@ public class MainGame {
 					// make sure framerate milliseconds have passed this frame
 					if (elapsedTime < framerate) {
 						Thread.sleep(framerate - elapsedTime);
-					} else {
+					}
+					else {
 						// don't starve the garbage collector
 						Thread.sleep(5);
 					}
-				} catch (InterruptedException e) {
+				}
+				catch (InterruptedException e) {
 					break;
 				}
 				++frameCount;
@@ -195,8 +202,9 @@ public class MainGame {
 	}
 
 	/**
-	 * @param menu In menu or not?
-	 */ 
+	 * @param menu
+	 * In menu or not?
+	 */
 	public void setMenu(boolean menu) {
 		this.menu = menu;
 	}

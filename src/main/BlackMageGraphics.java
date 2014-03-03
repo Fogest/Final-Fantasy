@@ -8,7 +8,7 @@ import java.awt.image.*;
 /**
  * @author Nathan Pereira
  * 
- *         Class that handle the graphics for black mage
+ * Class that handle the graphics for black mage
  */
 public class BlackMageGraphics {
 
@@ -28,7 +28,7 @@ public class BlackMageGraphics {
 	 * Draws the options menu that black mage can perform
 	 * 
 	 * @param g
-	 *            Graphics variable required for drawing to screen
+	 * Graphics variable required for drawing to screen
 	 */
 	public void setMenu(Graphics g) {
 		g.drawImage(menu, 257, 420, 430, 150, null);
@@ -38,7 +38,7 @@ public class BlackMageGraphics {
 	 * Draws the black mage standing
 	 * 
 	 * @param g
-	 *            Graphics variable required for drawing to screen
+	 * Graphics variable required for drawing to screen
 	 */
 	public void setStand(Graphics g) {
 		g.drawImage(bma[5], 770, 65, 50, 75, null);

@@ -26,9 +26,11 @@ public class GridPanel extends JPanel implements KeyListener {
 	private int spriteTick = 0;
 
 	/**
-	 * Creates the new elements required to create a grid and character on that grid
+	 * Creates the new elements required to create a grid and character on that
+	 * grid
 	 * 
-	 * @param s Passing in the map name so that the game knows which map file to load.
+	 * @param s
+	 * Passing in the map name so that the game knows which map file to load.
 	 */
 	public GridPanel(String s) {
 		this.g = new Grid(s);
@@ -55,7 +57,7 @@ public class GridPanel extends JPanel implements KeyListener {
 		if (U == true) {
 			if (isBlocked(true, false, false, false) != true) {
 				c.moveUp(getSpeed());
-				c.setSpritePos(getCurSprite(true,false,false,false));
+				c.setSpritePos(getCurSprite(true, false, false, false));
 				repaint();
 				checkEntity();
 			}
@@ -63,7 +65,7 @@ public class GridPanel extends JPanel implements KeyListener {
 		if (D == true) {
 			if (isBlocked(false, true, false, false) != true) {
 				c.moveDown(getSpeed());
-				c.setSpritePos(getCurSprite(false,true,false,false));
+				c.setSpritePos(getCurSprite(false, true, false, false));
 				repaint();
 				checkEntity();
 			}
@@ -72,7 +74,7 @@ public class GridPanel extends JPanel implements KeyListener {
 		if (R == true) {
 			if (isBlocked(false, false, true, false) != true) {
 				c.moveRight(getSpeed());
-				c.setSpritePos(getCurSprite(false,false,true,false));
+				c.setSpritePos(getCurSprite(false, false, true, false));
 				repaint();
 				checkEntity();
 			}
@@ -80,7 +82,7 @@ public class GridPanel extends JPanel implements KeyListener {
 		if (L == true) {
 			if (isBlocked(false, false, false, true) != true) {
 				c.moveLeft(getSpeed());
-				c.setSpritePos(getCurSprite(false,false,false,true));
+				c.setSpritePos(getCurSprite(false, false, false, true));
 				repaint();
 				checkEntity();
 			}
@@ -176,10 +178,14 @@ public class GridPanel extends JPanel implements KeyListener {
 	}
 
 	/**
-	 * @param aa Are they going up?
-	 * @param bb Are they going down?
-	 * @param cc Are they going right?
-	 * @param dd Are they going left?
+	 * @param aa
+	 * Are they going up?
+	 * @param bb
+	 * Are they going down?
+	 * @param cc
+	 * Are they going right?
+	 * @param dd
+	 * Are they going left?
 	 * @return True if tile in front is blocked, false if is not.
 	 */
 	public boolean isBlocked(boolean aa, boolean bb, boolean cc, boolean dd) {
@@ -205,7 +211,8 @@ public class GridPanel extends JPanel implements KeyListener {
 	}
 
 	/**
-	 * @param battle Set battle to be true or false based on checkEntity()
+	 * @param battle
+	 * Set battle to be true or false based on checkEntity()
 	 */
 	public void setBattle(boolean battle) {
 		this.battle = battle;
@@ -219,27 +226,33 @@ public class GridPanel extends JPanel implements KeyListener {
 	}
 
 	/**
-	 * @param spriteTick sets the current sprite tick
+	 * @param spriteTick
+	 * sets the current sprite tick
 	 */
 	public void setSpriteTick(int spriteTick) {
-		if(spriteTick >= 31) {
+		if (spriteTick >= 31) {
 			spriteTick = 0;
 		}
 		this.spriteTick = spriteTick;
 	}
 
 	/**
-	 * Used to determine which sprite to show to animate the movement of the character
+	 * Used to determine which sprite to show to animate the movement of the
+	 * character
 	 * 
-	 * @param U is player going up?
-	 * @param D is player going down?
-	 * @param R is player going right?
-	 * @param L is player going left?
+	 * @param U
+	 * is player going up?
+	 * @param D
+	 * is player going down?
+	 * @param R
+	 * is player going right?
+	 * @param L
+	 * is player going left?
 	 * @return Current sprite position
 	 */
 	public int getCurSprite(boolean U, boolean D, boolean R, boolean L) {
-		spriteTick  = spriteTick + getSpeed();
-		if(spriteTick >= 75) {
+		spriteTick = spriteTick + getSpeed();
+		if (spriteTick >= 75) {
 			spriteTick = 0;
 		}
 		if (getSpriteTick() >= 0 && getSpriteTick() <= 25) {
@@ -284,7 +297,7 @@ public class GridPanel extends JPanel implements KeyListener {
 				return 10;
 			}
 		}
-		
+
 		return 1;
 	}
 
@@ -296,36 +309,40 @@ public class GridPanel extends JPanel implements KeyListener {
 	}
 
 	/**
-	 * @param speed Sets the current characters speed
+	 * @param speed
+	 * Sets the current characters speed
 	 */
 	public void setSpeed(int speed) {
 		this.speed = speed;
 	}
+
 	/**
-	 * Checks if the character has hit the map edge. If they have then the map is shifted according to which way they are going.
+	 * Checks if the character has hit the map edge. If they have then the map
+	 * is shifted according to which way they are going.
 	 */
 	public void checkMove() {
-		if(c.getCharSheetPosX() > 1000) {
+		if (c.getCharSheetPosX() > 1000) {
 			g.shiftRight();
 			c.setCharSheetPosX(950);
 			repaint();
 		}
-		else if(c.getCharSheetPosX() < 10) {
+		else if (c.getCharSheetPosX() < 10) {
 			g.shiftLeft();
 			c.setCharSheetPosX(128);
 			repaint();
 		}
-		else if(c.getCharSheetPosY() > 550) {
+		else if (c.getCharSheetPosY() > 550) {
 			g.shiftDown();
 			c.setCharSheetPosY(500);
 			repaint();
 		}
-		else if(c.getCharSheetPosY() < 10) {
+		else if (c.getCharSheetPosY() < 10) {
 			g.shiftUp();
 			c.setCharSheetPosY(75);
 			repaint();
 		}
 	}
+
 	/**
 	 * Resets the checkEntity method in CharacterBoard.
 	 */

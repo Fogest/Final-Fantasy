@@ -15,8 +15,10 @@ public class Tile {
 	/**
 	 * Creates a new TileType
 	 * 
-	 * @param s Size of tile
-	 * @param charType Tile Type
+	 * @param s
+	 * Size of tile
+	 * @param charType
+	 * Tile Type
 	 */
 	public Tile(int s, char charType) {
 		this.setSize(s);
@@ -32,21 +34,23 @@ public class Tile {
 	}
 
 	/**
-	 * @param size Size of tile
+	 * @param size
+	 * Size of tile
 	 */
 	public void setSize(int size) {
 		this.size = size;
 	}
 
 	/**
-	 * @return The tiletype 
+	 * @return The tiletype
 	 */
 	public TileType getTileType() {
 		return tileType;
 	}
 
 	/**
-	 * @param tileType Sets the TileType
+	 * @param tileType
+	 * Sets the TileType
 	 */
 	public void setTileType(TileType tileType) {
 		this.tileType = tileType;
@@ -60,30 +64,32 @@ public class Tile {
 	}
 
 	/**
-	 * @return Returns the sprite position of the current tile to be used in drawing
+	 * @return Returns the sprite position of the current tile to be used in
+	 * drawing
 	 */
 	public int getSpritePos() {
 		return tileType.getSpritePos();
 	}
 
 	/**
-	 * @param charType Sets the charType
+	 * @param charType
+	 * Sets the charType
 	 */
 	public void setCharType(char charType) {
 		this.charType = charType;
 	}
+
 	/**
 	 * @return the speed of the tile
 	 */
-	public int getSpeed()
-	{
+	public int getSpeed() {
 		return tileType.getSpeed();
 	}
+
 	/**
 	 * @return true if blocked, false if clear.
 	 */
-	public boolean isBlocked()
-	{
-	return tileType.isBlocked();	
+	public boolean isBlocked() {
+		return tileType.isBlocked();
 	}
-	}
+}

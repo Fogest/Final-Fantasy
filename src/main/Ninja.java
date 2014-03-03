@@ -4,7 +4,7 @@ package main;
 /**
  * @author Nathan Pereira
  * 
- *         Class that is used for playing as a ninja
+ * Class that is used for playing as a ninja
  * 
  */
 public class Ninja extends Character {
@@ -21,7 +21,7 @@ public class Ninja extends Character {
 	 * selected
 	 * 
 	 * @param e
-	 *            Enemy that the player has select to hit
+	 * Enemy that the player has select to hit
 	 */
 	public void attack(Enemy e) {
 		int attackPower = (super.getWeaponValue() + (super.getStrength() / 4) + (super

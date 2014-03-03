@@ -9,7 +9,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 
 /**
  * @author Justin
- *
+ * 
  */
 public class Sound {
 	Clip soundClip;
@@ -17,27 +17,32 @@ public class Sound {
 	/**
 	 * Creates a loads a new sound clip
 	 * 
-	 * @param soundFile File name of the sound clip EXCLUDING the extension name
+	 * @param soundFile
+	 * File name of the sound clip EXCLUDING the extension name
 	 */
 	public Sound(String soundFile) {
 		try {
 			File file = new File("Sounds\\" + soundFile + ".mid");
 			soundClip = AudioSystem.getClip();
 			soundClip.open(AudioSystem.getAudioInputStream(file));
-		} catch (LineUnavailableException e) {
+		}
+		catch (LineUnavailableException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (IOException e) {
+		}
+		catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (UnsupportedAudioFileException e) {
+		}
+		catch (UnsupportedAudioFileException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
 	/**
-	 * Starts playback of a soundtrack and loops 3 times. 3 times should be enough in this case!
+	 * Starts playback of a soundtrack and loops 3 times. 3 times should be
+	 * enough in this case!
 	 */
 	public void play() {
 		soundClip.loop(3);

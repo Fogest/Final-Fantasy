@@ -1,11 +1,12 @@
 package main;
+
 /**
  * 
  */
 
 /**
  * @author Nathan
- *
+ * 
  */
 public class GameOver {
 
