@@ -19,7 +19,7 @@ import javax.swing.JPanel;
  */
 
 public class Menu extends JPanel implements MouseListener, MouseMotionListener {
-
+	private static final long serialVersionUID = -4807742350444325324L;
 	private boolean credits;
 	private boolean main;
 
@@ -64,23 +64,23 @@ public class Menu extends JPanel implements MouseListener, MouseMotionListener {
 	 * Mouse Checks
 	 */
 	public void run() {
-		if ((getMousePosX() > posX) && (getMousePosX() < posX + 145)
-				&& (getMousePosY() > posY) && (getMousePosY() < posY + 30)) {
+		if (getMousePosX() > posX && getMousePosX() < posX + 145
+				&& getMousePosY() > posY && getMousePosY() < posY + 30) {
 			setF1(new Font("Arial", Font.BOLD, 30));
 		}
 		else {
 			setF1(new Font("Arial", Font.PLAIN, 30));
 		}
 
-		if ((getMousePosX() > posX) && (getMousePosX() < posX + 95)
-				&& (getMousePosY() > posY + 31) && (getMousePosY() < posY + 60)) {
+		if (getMousePosX() > posX && getMousePosX() < posX + 95
+				&& getMousePosY() > posY + 31 && getMousePosY() < posY + 60) {
 			setF2(new Font("Arial", Font.BOLD, 30));
 		}
 		else {
 			setF2(new Font("Arial", Font.PLAIN, 30));
 		}
-		if ((getMousePosX() > posX) && (getMousePosX() < posX + 60)
-				&& (getMousePosY() > posY + 61) && (getMousePosY() < posY + 90)) {
+		if (getMousePosX() > posX && getMousePosX() < posX + 60
+				&& getMousePosY() > posY + 61 && getMousePosY() < posY + 90) {
 			setF3(new Font("Arial", Font.BOLD, 30));
 		}
 		else {
@@ -101,6 +101,7 @@ public class Menu extends JPanel implements MouseListener, MouseMotionListener {
 	 * 
 	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
 	 */
+	@Override
 	public void paintComponent(Graphics g) {
 
 		g.setColor(Color.WHITE);
@@ -150,7 +151,7 @@ public class Menu extends JPanel implements MouseListener, MouseMotionListener {
 	 * If in menu or not
 	 */
 	public void setMenu(boolean menu) {
-		this.isMenu = menu;
+		isMenu = menu;
 	}
 
 	/**
@@ -193,24 +194,23 @@ public class Menu extends JPanel implements MouseListener, MouseMotionListener {
 		int x = e.getX();
 		int y = e.getY();
 		if (isMain()) {
-			if ((x > posX) && (x < posX + 145) && (y > posY) && (y < posY + 30)) {
+			if (x > posX && x < posX + 145 && y > posY && y < posY + 30) {
 				setMenu(false);
 				setCredits(false);
 				setMain(false);
 			}
-			else if ((x > posX) && (x < posX + 95) && (y > posY + 31)
-					&& (y < posY + 60)) {
+			else if (x > posX && x < posX + 95 && y > posY + 31
+					&& y < posY + 60) {
 				setCredits(true);
 				setMain(false);
 			}
-			else if ((x > posX) && (x < posX + 60) && (y > posY + 61)
-					&& (y < posY + 90)) {
+			else if (x > posX && x < posX + 60 && y > posY + 61
+					&& y < posY + 90) {
 				System.exit(1);
 			}
 		}
 		else if (isCredits()) {
-			if ((x > posX) && (x < posX + 60) && (y > posY + 61)
-					&& (y < posY + 90)) {
+			if (x > posX && x < posX + 60 && y > posY + 61 && y < posY + 90) {
 				setMain(true);
 				setCredits(false);
 			}
@@ -270,6 +270,7 @@ public class Menu extends JPanel implements MouseListener, MouseMotionListener {
 	 * java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.MouseEvent
 	 * )
 	 */
+	@Override
 	public void mouseDragged(MouseEvent e) {
 
 	}
@@ -280,12 +281,13 @@ public class Menu extends JPanel implements MouseListener, MouseMotionListener {
 	 * @see
 	 * java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
 	 */
+	@Override
 	public void mouseMoved(MouseEvent e) {
 		int x = e.getX();
 		int y = e.getY();
 
-		this.setMousePosX(x);
-		this.setMousePosY(y);
+		setMousePosX(x);
+		setMousePosY(y);
 	}
 
 	/**

@@ -1,8 +1,15 @@
 package main;
 
-import java.awt.*;
-import java.awt.event.*;
-import java.awt.image.*;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -14,6 +21,7 @@ import javax.swing.JPanel;
  * performed
  */
 public class BattlePanel extends JPanel implements MouseListener, KeyListener {
+	private static final long serialVersionUID = 8698256547395789955L;
 	private BufferedImage battlelayout = ImageHelper
 			.loadImage("images/Battlemenu.png");
 	private BufferedImage background2 = ImageHelper
@@ -41,8 +49,8 @@ public class BattlePanel extends JPanel implements MouseListener, KeyListener {
 	 */
 	public BattlePanel(char x) {
 		this.x = x;
-		this.addMouseListener(this);
-		this.addKeyListener(this);
+		addMouseListener(this);
+		addKeyListener(this);
 		setPreferredSize(screenSize);
 	}
 
@@ -70,6 +78,7 @@ public class BattlePanel extends JPanel implements MouseListener, KeyListener {
 	 * 
 	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
 	 */
+	@Override
 	public void paintComponent(Graphics g) {
 		g.clearRect(0, 0, 1024, 576);
 		g.drawImage(battlelayout, 0, 0, 1024, 580, null);
@@ -168,40 +177,41 @@ public class BattlePanel extends JPanel implements MouseListener, KeyListener {
 	 * 
 	 * @see java.awt.event.MouseListener#mouseClicked(java.awt.event.MouseEvent)
 	 */
+	@Override
 	public void mouseClicked(MouseEvent e) {
 		int x = e.getX();
 		int y = e.getY();
 		// column 1
-		if ((x < 520) && (x > 390)) {
+		if (x < 520 && x > 390) {
 			// row one
-			if ((y < 450) && (y > 425)) {
+			if (y < 450 && y > 425) {
 				logic.performAction(currentc, 1, currente, currenth);
 				repaint();
 			}
 			else
 			// row two
-			if ((y < 490) && (y > 460)) {
+			if (y < 490 && y > 460) {
 				logic.performAction(currentc, 3, currente, currenth);
 				repaint();
 			}
 			else
 			// row three
-			if ((y < 525) && (y > 495)) {
+			if (y < 525 && y > 495) {
 				logic.performAction(currentc, 5, currente, currenth);
 				repaint();
 			}
 			else
 			// row four
-			if ((y < 560) && (y > 530)) {
+			if (y < 560 && y > 530) {
 				logic.performAction(currentc, 7, currente, currenth);
 				repaint();
 			}
 		}
 		else
 		// column 2
-		if ((x > 535) && (x < 650)) {
+		if (x > 535 && x < 650) {
 			// row one
-			if ((y < 450) && (y > 425)) {
+			if (y < 450 && y > 425) {
 				if (logic.getPartyState(currentc)) {
 					logic.performAction(currentc, 2, currente, currenth);
 				}
@@ -209,13 +219,13 @@ public class BattlePanel extends JPanel implements MouseListener, KeyListener {
 			}
 			else
 			// row two
-			if ((y < 490) && (y > 460)) {
+			if (y < 490 && y > 460) {
 				logic.performAction(currentc, 4, currente, currenth);
 				repaint();
 			}
 			else
 			// row three
-			if ((y < 525) && (y > 495)) {
+			if (y < 525 && y > 495) {
 				logic.performAction(currentc, 6, currente, currenth);
 				repaint();
 			}
@@ -278,6 +288,7 @@ public class BattlePanel extends JPanel implements MouseListener, KeyListener {
 	 * 
 	 * @see java.awt.event.MouseListener#mouseEntered(java.awt.event.MouseEvent)
 	 */
+	@Override
 	public void mouseEntered(MouseEvent paramMouseEvent) {
 	}
 
@@ -286,6 +297,7 @@ public class BattlePanel extends JPanel implements MouseListener, KeyListener {
 	 * 
 	 * @see java.awt.event.MouseListener#mouseExited(java.awt.event.MouseEvent)
 	 */
+	@Override
 	public void mouseExited(MouseEvent paramMouseEvent) {
 	}
 
@@ -295,6 +307,7 @@ public class BattlePanel extends JPanel implements MouseListener, KeyListener {
 	 * @see
 	 * java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
 	 */
+	@Override
 	public void mouseReleased(MouseEvent paramMouseEvent) {
 	}
 
@@ -303,6 +316,7 @@ public class BattlePanel extends JPanel implements MouseListener, KeyListener {
 	 * 
 	 * @see java.awt.event.MouseListener#mousePressed(java.awt.event.MouseEvent)
 	 */
+	@Override
 	public void mousePressed(MouseEvent paramMouseEvent) {
 	}
 
@@ -311,6 +325,7 @@ public class BattlePanel extends JPanel implements MouseListener, KeyListener {
 	 * 
 	 * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
 	 */
+	@Override
 	public void keyPressed(KeyEvent paramKeyEvent) {
 		int id = paramKeyEvent.getKeyCode();
 		if (id == KeyEvent.VK_Q) {
@@ -335,6 +350,7 @@ public class BattlePanel extends JPanel implements MouseListener, KeyListener {
 	 * 
 	 * @see java.awt.event.KeyListener#keyReleased(java.awt.event.KeyEvent)
 	 */
+	@Override
 	public void keyReleased(KeyEvent paramKeyEvent) {
 	}
 
@@ -343,6 +359,7 @@ public class BattlePanel extends JPanel implements MouseListener, KeyListener {
 	 * 
 	 * @see java.awt.event.KeyListener#keyTyped(java.awt.event.KeyEvent)
 	 */
+	@Override
 	public void keyTyped(KeyEvent paramKeyEvent) {
 
 	}

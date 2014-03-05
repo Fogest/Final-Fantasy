@@ -14,6 +14,7 @@ import javax.swing.JPanel;
  * 
  */
 public class GridPanel extends JPanel implements KeyListener {
+	private static final long serialVersionUID = 5178542849084196086L;
 	Grid g;
 	CharacterBoard c;
 	private int speed = 1;
@@ -33,8 +34,8 @@ public class GridPanel extends JPanel implements KeyListener {
 	 * Passing in the map name so that the game knows which map file to load.
 	 */
 	public GridPanel(String s) {
-		this.g = new Grid(s);
-		this.c = new CharacterBoard();
+		g = new Grid(s);
+		c = new CharacterBoard();
 	}
 
 	/*
@@ -45,7 +46,7 @@ public class GridPanel extends JPanel implements KeyListener {
 	@Override
 	public void paintComponent(Graphics g) {
 		this.g.paintComponent(g);
-		this.c.paintComponent(g);
+		c.paintComponent(g);
 	}
 
 	/**
